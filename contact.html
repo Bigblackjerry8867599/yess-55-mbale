@@ -840,33 +840,88 @@
                 </div>
                 
                 <div class="contact-form" id="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Your name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="your.email@example.com" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" placeholder="What is this regarding?" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" class="form-control" placeholder="How can we help you?" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
+                  <h3>Send Us a Message</h3>
+<form id="contactForm">
+
+    <!-- Honeypot: hidden from humans, bots fill it in -->
+    <input type="text" name="website" tabindex="-1" autocomplete="off"
+           style="position:absolute;left:-9999px" aria-hidden="true">
+
+    <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" class="form-control"
+               placeholder="Your name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" class="form-control"
+               placeholder="your.email@example.com" required>
+    </div>
+
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" name="subject" class="form-control"
+               placeholder="What is this regarding?" required>
+    </div>
+
+    <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" class="form-control"
+                  placeholder="How can we help you?" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Message</button>
+    <p id="form-status" role="status" aria-live="polite"></p>
+</form>
+</div>
+</div>
+</div>
+
+<script>
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxh_eMy071bFJHSWnk8ExAfB4zn3GoJ3pBzI-trYJLZrF2UqczNrpValCqVb7ssNUQaUg/exec';
+
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    const status = document.getElementById('form-status');
+    const originalText = btn.textContent;
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.textContent = '';
+    status.className = '';
+
+    const data = new URLSearchParams(new FormData(form));
+
+    try {
+        await fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            body: data
+        });
+
+        form.reset();
+        status.textContent = "Thanks! Your message has been sent.";
+        status.style.color = '#2e7d32';
+
+    } catch (err) {
+        status.textContent = 'Something went wrong. Please email us directly.';
+        status.style.color = '#c62828';
+
+    } finally {
+        btn.disabled = false;
+        btn.textContent = originalText;
+    }
+});
+</script>
+
+
+
+
+                    
     </section>
 
     <!-- FAQ Section -->
