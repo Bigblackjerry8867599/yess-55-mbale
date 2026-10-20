@@ -158,6 +158,8 @@
 
 
 /* ===== HERO SECTION ===== */
+
+==== HERO SECTION ===== */
         .hero-body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(0deg, #ffffff 0%, #3162d3 100%);
@@ -166,15 +168,302 @@
             overflow-x: hidden;
         }
 
-        
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 100px;
-            background: var(--light);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
+        section.hero {
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+            background: linear-gradient(0deg, #ffffff 0%, #3162d3 100%);
+            overflow: visible;
         }
+
+        .hero-container {
+            max-width: 100%;
+            margin: 0 auto;
+            min-height: auto;
+            padding: 40px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .hero-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: visible;
+            margin-left: 5%;
+        }
+
+        .hero-column:nth-child(1) {
+            margin-top: 0;
+            width: 60%;
+            position: relative;
+        }
+
+        h5 {
+            position: relative;
+            color: #fff;
+            background-color: rgb(3, 3, 94);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        h5::before,
+        h5::after {
+            content: '\2022';
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 5px;
+        }
+
+        .hero-text {
+            font-size: 4.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .hero-paragraph {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .order-button {
+            background-color: rgb(3, 3, 94);
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-button:hover {
+            background-color: #c87f0a;
+        }
+
+        /* ============================================
+           HERO IMAGE — longitudinal oval.
+           200px × 1000px on desktop.
+           ============================================ */
+        .hero-column-two-image {
+            position: absolute;
+            width: 200px;
+            height: 1000px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: calc(5% + 100px - 500px);
+            margin-left: 20%;
+            transform: translateX(-50%);
+            z-index: 99;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Circle badge — sits on top of the image-oval */
+        .img-info {
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            background-color: rgb(3, 3, 94);
+            border-radius: 50%;
+            margin-top: 5%;
+            margin-left: 20%;
+            transform: translateX(-50%);
+            z-index: 100;
+            text-align: center;
+            line-height: 200px;
+            border-left: 4px dotted white;
+        }
+
+        .img-info h1 {
+            margin: 0;
+            font-size: 2.1rem;
+            color: #fff;
+            line-height: 40px;
+            margin-top: 20%;
+        }
+
+        .img-info span {
+            display: block;
+            font-size: 0.8rem;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+            padding: 0 5%;
+            padding-bottom: 40px;
+        }
+
+        /* ============================================
+           TABLET — between 769px and 992px
+           Scale the oval down so it doesn't dominate.
+           ============================================ */
+        @media (max-width: 992px) and (min-width: 769px) {
+            .hero-text {
+                font-size: 3rem;
+            }
+
+            .hero-column-two-image {
+                width: 160px;
+                height: 800px;
+                margin-top: calc(5% + 80px - 400px);
+                margin-left: 20%;
+            }
+
+            .img-info {
+                height: 160px;
+                width: 160px;
+                line-height: 160px;
+                margin-top: 5%;
+                margin-left: 20%;
+            }
+
+            .img-info h1 {
+                font-size: 1.7rem;
+                line-height: 32px;
+                margin-top: 22%;
+            }
+        }
+
+        /* ============================================
+           MOBILE — 768px and below.
+           Full redesign of the hero for touch.
+           ============================================ */
+        @media (max-width: 768px) {
+
+            /* --- HERO LAYOUT: stack columns --- */
+            .hero-container {
+                flex-direction: column;
+                padding: 20px 0 0;
+            }
+
+            .hero-column {
+                flex: none;
+                width: 100%;
+                margin-left: 0;
+                padding: 10px 20px;
+                align-items: center;
+                text-align: center;
+            }
+
+            .hero-column:nth-child(1) {
+                width: 100%;
+                order: 2;                 /* text under the image */
+            }
+
+            .hero-column:nth-child(2) {
+                order: 1;                 /* image on top */
+                min-height: 500px;        /* reserve room for the tall oval */
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            /* --- Text sizing --- */
+            .hero-text {
+                font-size: 2rem;
+                line-height: 1.2;
+                margin-bottom: 0.75rem;
+            }
+
+            h5 {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
+
+            h5::before,
+            h5::after {
+                font-size: 1rem;
+            }
+
+            .hero-paragraph {
+                font-size: 0.9rem;
+                color: #fff;
+                margin-bottom: 1.2rem;
+                max-width: 420px;
+            }
+
+            .order-button {
+                font-size: 0.95rem;
+                padding: 12px 24px;
+            }
+
+            /* --- The oval image, scaled for mobile ---
+               120px wide × 600px tall still fits touch screens
+               without overwhelming. Positioned centered horizontally. */
+            .hero-column-two-image {
+                position: relative;                /* take it out of absolute */
+                width: 120px;
+                height: 600px;
+                margin: 0 auto;                    /* center it in the column */
+                transform: none;                   /* cancel desktop transform */
+                display: block;
+                left: auto;
+                right: auto;
+                top: auto;
+                bottom: auto;
+            }
+
+            /* --- The circle badge on mobile ---
+               Anchored on top of the oval image, centered. */
+            .img-info {
+                position: absolute;
+                height: 120px;
+                width: 120px;
+                line-height: 120px;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                margin: 0;                         /* kill desktop margins */
+            }
+
+            .img-info h1 {
+                font-size: 1.2rem;
+                line-height: 24px;
+                margin-top: 22%;
+            }
+
+            .img-info span {
+                font-size: 0.7rem;
+            }
+
+            /* --- Hero buttons --- */
+            .hero-btns {
+                flex-direction: column;
+                gap: 12px;
+                padding: 20px 20px 40px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 20px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+
+
+        
+        
+        
         
         
         
