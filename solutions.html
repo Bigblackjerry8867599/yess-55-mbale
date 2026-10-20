@@ -268,37 +268,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        /* Circle badge — sits on top of the image-oval */
-        .img-info {
-            position: absolute;
-            height: 200px;
-            width: 200px;
-            background-color: rgb(3, 3, 94);
-            border-radius: 50%;
-            margin-top: 5%;
-            margin-left: 20%;
-            transform: translateX(-50%);
-            z-index: 100;
-            text-align: center;
-            line-height: 200px;
-            border-left: 4px dotted white;
-        }
-
-        .img-info h1 {
-            margin: 0;
-            font-size: 2.1rem;
-            color: #fff;
-            line-height: 40px;
-            margin-top: 20%;
-        }
-
-        .img-info span {
-            display: block;
-            font-size: 0.8rem;
-            color: #ffffff;
-            margin: 0;
-        }
-
+        /
         .hero-btns {
             display: flex;
             gap: 10px;
@@ -323,20 +293,7 @@
                 margin-left: 20%;
             }
 
-            .img-info {
-                height: 160px;
-                width: 160px;
-                line-height: 160px;
-                margin-top: 5%;
-                margin-left: 20%;
-            }
-
-            .img-info h1 {
-                font-size: 1.7rem;
-                line-height: 32px;
-                margin-top: 22%;
-            }
-        }
+        
 
         /* ============================================
            MOBILE — 768px and below.
@@ -403,41 +360,7 @@
             /* --- The oval image, scaled for mobile ---
                120px wide × 600px tall still fits touch screens
                without overwhelming. Positioned centered horizontally. */
-            .hero-column-two-image {
-                position: relative;                /* take it out of absolute */
-                width: 120px;
-                height: 600px;
-                margin: 0 auto;                    /* center it in the column */
-                transform: none;                   /* cancel desktop transform */
-                display: block;
-                left: auto;
-                right: auto;
-                top: auto;
-                bottom: auto;
-            }
-
-            /* --- The circle badge on mobile ---
-               Anchored on top of the oval image, centered. */
-            .img-info {
-                position: absolute;
-                height: 120px;
-                width: 120px;
-                line-height: 120px;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                margin: 0;                         /* kill desktop margins */
-            }
-
-            .img-info h1 {
-                font-size: 1.2rem;
-                line-height: 24px;
-                margin-top: 22%;
-            }
-
-            .img-info span {
-                font-size: 0.7rem;
-            }
+            
 
             /* --- Hero buttons --- */
             .hero-btns {
@@ -1069,12 +992,7 @@
                     laudantium suscipit provident reprehenderit, officiis cumque quibusdam.</p>
                 <button class="order-button">Book Appointment</button>
             </div>
-            <div class="hero-column">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Outdoor adventure" class="hero-column-two-image">
-
-                <div class="img-info">
-                    <h1>870+ Successful Treatment</h1>
-                </div>
+            
             </div>
     
 
